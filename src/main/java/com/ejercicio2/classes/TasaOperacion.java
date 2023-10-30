@@ -1,7 +1,7 @@
 package com.ejercicio2.classes;
 
-import com.ejercicio2.contracts.Marca;
 import com.ejercicio2.marcas.Amex;
+import com.ejercicio2.marcas.Marca;
 import com.ejercicio2.marcas.Nara;
 import com.ejercicio2.marcas.Visa;
 import com.ejercicio2.models.OperacionTasaResponse;

@@ -2,9 +2,8 @@ package com.ejercicio2.marcas;
 
 import java.time.LocalDate;
 
-import com.ejercicio2.contracts.Marca;
 
-public class Visa implements Marca{
+public class Visa extends Marca{
 
 	@Override
 	public double calcularTasa() {
