@@ -1,12 +1,25 @@
 package com.ejercicio2.classes;
 
 import com.ejercicio2.marcas.*;
+import com.ejercicio2.models.OperacionTasaResponse;
 
 public class Operacion {
 
 	static private final int IMPORTE_MAX = 1000;
 	
-	public boolean validarOperacion(double importe) throws Exception {
+	public static OperacionTasaResponse calcularTasaOperacion(String nombreMarca, double importe) throws Exception {
+		OperacionTasaResponse response = new OperacionTasaResponse();
+
+		if(validarOperacion(importe)) {
+			response.setImporte(importe);
+			response.setTasaOperacion(obtenerTasaOperacion(nombreMarca, importe));
+			response.setMarca(nombreMarca);
+		}
+		
+		return response;
+	}
+	
+	static public boolean validarOperacion(double importe) throws Exception {
 		boolean isValida = importe < IMPORTE_MAX;
 		
 		if(!isValida) {
@@ -16,7 +29,7 @@ public class Operacion {
 		return isValida;
 	}
 	
-	public double obtenerTasaOperacion(String marca, double importe) throws Exception {
+	static public double obtenerTasaOperacion(String marca, double importe) throws Exception {
 		double tasaOperacion = 0;
 		boolean isValida = validarOperacion(importe);
 		
