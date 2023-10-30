@@ -15,13 +15,12 @@ public class Main {
 		
 		Tarjeta tarjeta1 = new Tarjeta(new Visa(), new BigInteger("1111222233334444"), new CardHolder("Facundo", "Safe"), LocalDate.now());
 		Tarjeta tarjeta2 = new Tarjeta(new Nara(), new BigInteger("1111222233334444"), new CardHolder("Facundo", "Safe"), LocalDate.now());
-		Operacion operacion = new Operacion();
 		
 		//el override del toString devuelve la información de la tarjeta
 		System.out.println(tarjeta1);
 		//informar si la operación es válida
 		try {
-			System.out.println(operacion.validarOperacion(900));
+			System.out.println(Operacion.validarOperacion(900));
 		}
 		catch(Exception e) {
 			System.out.println(e.getMessage());
@@ -32,14 +31,14 @@ public class Main {
 		System.out.println(tarjeta1.getMarca().equals(tarjeta2.getMarca()));
 		
 		try {
-			System.out.println(operacion.obtenerTasaOperacion("AMEX", 1000));
+			System.out.println(Operacion.obtenerTasaOperacion("AMEX", 1000));
 		}
 		catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
 		
 		try {
-			System.out.println(operacion.obtenerTasaOperacion("AMEX", 900));
+			System.out.println(Operacion.obtenerTasaOperacion("AMEX", 900));
 		}
 		catch(Exception e) {
 			System.out.println(e.getMessage());

@@ -44,6 +44,8 @@ public class Operacion {
 			case "VISA": 
 				tasaOperacion = new Visa().calcularTasa();
 				break;
+			default:
+				throw new Exception("La marca no existe.");
 			}	
 		}
 	
