@@ -34,14 +34,14 @@ public class Operacion {
 		boolean isValida = validarOperacion(importe);
 		
 		if(isValida) {
-			switch(marca) {
-			case "AMEX":
+			switch(normalizeMarca(marca)) {
+			case "amex":
 				tasaOperacion = new Amex().calcularTasa();
 				break;
-			case "NARA":
+			case "nara":
 				tasaOperacion = new Nara().calcularTasa();
 				break;
-			case "VISA": 
+			case "visa": 
 				tasaOperacion = new Visa().calcularTasa();
 				break;
 			default:
@@ -50,5 +50,9 @@ public class Operacion {
 		}
 	
 		return (tasaOperacion * importe) / 100;
+	}
+	
+	static String normalizeMarca(String nombreMarca) {
+		return nombreMarca.toLowerCase();
 	}
 }
